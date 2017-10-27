@@ -42,7 +42,7 @@ Use as you would any Mongoose plugin:
 
 ``` js
 var mongoose = require('mongoose'),
-    diffHistory = require('mongoose-diff-history/diffHistory'),
+    diffHistory = require('mongoose-diff-history/diffHistory')(mongoose),
     schema = new mongoose.Schema({ ... });
     schema.plugin(diffHistory.plugin);
 ```

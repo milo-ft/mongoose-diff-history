@@ -1,5 +1,7 @@
-var mongoose = require("mongoose");
-var historySchema = new mongoose.Schema(
+module.exports = function(mongoose) {
+  if (mongoose.models.History) 
+    return mongoose.model("History")
+  var historySchema = new mongoose.Schema(
     {
         collectionName: {type: String},
         collectionId: {type: mongoose.Schema.Types.ObjectId},
@@ -11,6 +13,5 @@ var historySchema = new mongoose.Schema(
     {
         timestamps: true
     });
-
-var History = mongoose.model("History", historySchema);
-module.exports = History;
+  return mongoose.model("History", historySchema);
+};
